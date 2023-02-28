@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 dotenv.config({
-  path: `${__dirname}/../../../environments/.env`
+  path: `${__dirname}/../../../environments/.env`,
 });
 
 export class Config {
@@ -15,4 +15,7 @@ export class Config {
   static PASSWORD = process.env.PASSWORD;
   static DB_PORT = Number(process.env.DB_PORT);
   static HOST = process.env.HOST;
+  static MINION_TABLE = process.env.MINION_TABLE;
+  static SCHEMA = process.env.SCHEMA;
+  static MODEL_NAME = process.env.MODEL_NAME;
 }
