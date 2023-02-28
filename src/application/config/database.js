@@ -2,8 +2,8 @@ import { Sequelize } from 'sequelize';
 import { Config } from '../shared/config.js';
 
 export class Database {
-  #sequelize;
   static #instance;
+  #sequelize;
 
   constructor() {
     this.#sequelize = new Sequelize(
@@ -32,7 +32,7 @@ export class Database {
     }
   }
 
-  async define(model, ...args) {
-    return this.#sequelize.define(model, { args });
+  getConnection() {
+    return this.#sequelize;
   }
 }
