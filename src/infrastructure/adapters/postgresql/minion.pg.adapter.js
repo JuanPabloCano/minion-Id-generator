@@ -5,7 +5,7 @@ export class MinionPgAdapter {
     this.#minionSchema = minionSchema;
   }
 
-  async create(data) {
+  async updateMinionId(data) {
     try {
       return (await this.#minionSchema).create(data);
     } catch (err) {

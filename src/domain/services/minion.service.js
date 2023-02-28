@@ -19,7 +19,7 @@ export class MinionService {
   async updateMinionId(codeIdAsked) {
     try {
       const primeCode = await this.#transformCommanderLambdaString(codeIdAsked);
-      return this.#minionPgAdapter.create(
+      return this.#minionPgAdapter.updateMinionId(
           new Minion()
               .setMinionAsk(codeIdAsked)
               .setRelatedCode(primeCode)
