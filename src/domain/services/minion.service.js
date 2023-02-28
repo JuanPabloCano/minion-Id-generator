@@ -5,13 +5,15 @@ export class MinionService {
   #minionPgAdapter;
   #readCommanderLambdaStringService;
   #POSITIONS;
-  #MAX_ALLOWED_LENGTH;
+  #MAX_ALLOWED_INDEX;
+  #MIN_ALLOWED_INDEX;
 
   constructor({ minionPgAdapter, readCommanderLambdaStringService }) {
     this.#minionPgAdapter = minionPgAdapter;
     this.#readCommanderLambdaStringService = readCommanderLambdaStringService;
     this.#POSITIONS = 5;
-    this.#MAX_ALLOWED_LENGTH = 10000;
+    this.#MAX_ALLOWED_INDEX = 10000;
+    this.#MIN_ALLOWED_INDEX = 0;
   }
 
   async updateMinionId(codeIdAsked) {
@@ -38,7 +40,7 @@ export class MinionService {
 
   async #transformCommanderLambdaString(codeIdAsked) {
     const commanderLambdaString = await this.#readCommanderLambdaStringService.execute();
-    if (codeIdAsked > this.#MAX_ALLOWED_LENGTH || codeIdAsked < 0) {
+    if (codeIdAsked > this.#MAX_ALLOWED_INDEX || codeIdAsked < this.#MIN_ALLOWED_INDEX) {
       throw new Error('Invalid Minion Id Asked');
     }
     return this.#shortenCommanderLambdaString(commanderLambdaString, Number(codeIdAsked));
