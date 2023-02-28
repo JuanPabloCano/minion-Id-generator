@@ -34,40 +34,6 @@ export class App {
   }
 
   #routes() {
-    this.#app.get('/', (_req, res) => res.send('Server working ok'));
     this.#app.use(minionRouter(this.#router));
   }
 }
-
-// const token = '2357111317192329';
-//
-// function shortenToken(token, index) {
-//   return token.substr(index, 5);
-// }
-//
-// const index = 3;
-// const shortenedToken = shortenToken(token, index);
-// console.log(shortenedToken);
-
-//
-// function isPrimeNumber(no) {
-//   if (no < 2) {
-//     return false;
-//   }
-//   for (let i = 2; i < no; i++) {
-//     if (no % i == 0) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
-// const arr = []
-//
-// for (let i = 1; i <= 1000; i++) {
-//   if (isPrimeNumber(i)) {
-//     arr.push(i)
-//   }
-// }
-//
-// const token = arr.join('')
-// token
