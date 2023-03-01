@@ -1,13 +1,15 @@
-export class MinionPgAdapter {
-  #minionSchema;
+import { MinionDao } from './dao/Minion.dao.js';
 
-  constructor({ minionSchema }) {
-    this.#minionSchema = minionSchema;
+export class MinionPgAdapter {
+  #minionDao;
+
+  constructor() {
+    this.#minionDao = MinionDao;
   }
 
   async updateMinionId(data) {
     try {
-      return (await this.#minionSchema).create(data);
+      return await this.#minionDao.create(data);
     } catch (err) {
       throw new Error(err.message);
     }
@@ -15,7 +17,7 @@ export class MinionPgAdapter {
 
   async findAll() {
     try {
-      return (await this.#minionSchema).findAll();
+      return await this.#minionDao.findAll();
     } catch (err) {
       throw new Error(err.message);
     }
