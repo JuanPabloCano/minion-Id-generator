@@ -8,7 +8,7 @@ export class MinionService {
   #MAX_ALLOWED_INDEX;
   #MIN_ALLOWED_INDEX;
 
-  constructor({ minionPgAdapter, readCommanderLambdaStringService }) {
+  constructor(minionPgAdapter, readCommanderLambdaStringService) {
     this.#minionPgAdapter = minionPgAdapter;
     this.#readCommanderLambdaStringService = readCommanderLambdaStringService;
     this.#POSITIONS = 5;

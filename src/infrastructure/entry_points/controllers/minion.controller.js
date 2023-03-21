@@ -3,7 +3,7 @@ import { HTTP_ERR0R_MESSAGE, HTTP_STATUS_CODE } from '../../../application/share
 export class MinionController {
   #minionService;
 
-  constructor({ minionService }) {
+  constructor(minionService) {
     this.#minionService = minionService;
   }
 

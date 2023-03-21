@@ -15,7 +15,7 @@ export class Minion {
   build() {
     return {
       minionAsk: this.#minionAsk,
-      relatedCode: this.#relatedCode
+      relatedCode: this.#relatedCode,
     };
   }
 }
